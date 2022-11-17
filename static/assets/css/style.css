@@ -1,147 +1,134 @@
 /*-----------------------------------*\
   #CUSTOM PROPERTY
 \*-----------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
 
-:root {
+:root{
+  --blue: #0188DF;
+  --black: #354046;
+}
 
-    /**
-     * colors
-     */
+*{
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+  border: none !important;
+  outline: none !important;
+  text-decoration: none !important;
+  text-transform: capitalize;
+  font-weight: 400;
+  transition: all .2s linear;
+
+}
+
+*::selection{
+  background:var(--black);
+  color:#fff;
+}
+html{
+  font-size:62.5%; 
+  overflow-x: hidden;
+}
+body{
+  overflow-x: hidden;
   
-    --rich-black-fogra-29: hsl(222, 44%, 8%);
-    --middle-blue-green_40: hsla(174, 64%, 71%, 0.4);
-    --midnight-green: hsl(186, 100%, 19%);
-    --midnight-green_a25: hsla(186, 100%, 19%, 0.25);
-    --independece: hsl(236, 14%, 39%);
-    --verdigris: hsl(182, 100%, 35%);
-    --ming: hsl(186, 72%, 24%);
-    --space-cadet: hsla(226, 45%, 24%);
-    --eerie-black: hsl(0, 0%, 13%);
-    --alice-blue: hsl(187, 25%, 94%);
-    --gray-web: hsl(0, 0%, 50%);
-    --gainsboro: hsl(0, 0%, 87%);
-    --white: hsl(0, 0%, 100%);
-    --white_a20: hsla(0, 0%, 100%, 0.2);
-    --white_a10: hsla(0, 0%, 100%, 0.1);
-    --black: hsl(0, 0%, 0%);
-  
-    /**
-     * typography
-     */
-  
-    --ff-oswald: 'Oswald', sans-serif;
-    --ff-rubik: 'Rubik', sans-serif;
-    
-    --headline-lg: 5rem;
-    --headline-md: 3rem;
-    --headline-sm: 2rem;
-    --title-lg: 1.8rem;
-    --title-md: 1.5rem;
-    --title-sm: 1.4rem;
-    
-    --fw-500: 500;
-    --fw-700: 700;
-  
-    /**
-     * spacing
-     */
-  
-    --section-padding: 120px;
-  
-    /**
-     * box shadow
-     */
-  
-    --shadow-1: 0px 2px 20px hsla(209, 36%, 72%, 0.2);
-    --shadow-2: 0 4px 16px hsla(0, 0%, 0%, 0.06);
-  
-    /**
-     * border radius
-     */
-  
-    --radius-circle: 50%;
-    --radius-12: 12px;
-    --radius-6: 6px;
-    --radius-4: 4px;
-  
-    /**
-     * transition
-     */
-  
-    --transition-1: 0.25s ease;
-    --transition-2: 0.5s ease;
-    --transition-3: 1s ease;
-    --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
-    --cubic-out: cubic-bezier(0.05, 0.83, 0.52, 0.97);
-  
+}
+.header{
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  padding:2rem 1rem;
+  z-index: 1000;
+}
+.header .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.header a{
+  color: var(--black);
+}
+.header a:hover{
+  color: var(--blue);
+}
+
+.header .container .logo{
+  font-size: 3rem;
+}
+.header .container span{
+  color:var(--blue);
+}
+.header .nav ul {
+  margin: 0;
+  padding: 0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  list-style: none;
+}
+
+.header .nav ul li{
+  margin: 0 1rem;
+}
+
+.header .nav ul li a{
+  font-size: 2rem;
+}
+
+.header .fa-bars{
+  font-size: 3.5rem;
+  color: var(--blue);
+  cursor: pointer;
+  display:none;
+}
+
+.header .fa-times{
+  transform: rotate(180deg);
+}
+
+/* ===========================================================================================
+=========================  media queries =====================================================
+==============================================================================================*/
+
+@media (max-width: 768px) {
+  html{
+    font-size: 55%;
   }
-  
-  
-  
-  
-  
-  /*-----------------------------------*\
-    #RESET
-  \*-----------------------------------*/
-  
-  *,
-  *::before,
-  *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  .header .fa-bars{
+    display: block;
   }
-  
-  li { list-style: none; }
-  
-  a,
-  img,
-  span,
-  time,
-  input,
-  button,
-  ion-icon { display: block; }
-  
-  a {
-    color: inherit;
-    text-decoration: none;
+  .header .nav{
+    position:fixed;
+    top: -100rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 100vh rgba(0, 0, 0, 0.3);
+    border-radius: .5rem;
+    border: .5rem solid var(--blue) !important;
+    background:#fff;
+    width: 95%;
+    opacity: 0;
   }
-  
-  img { height: auto; }
-  
-  input,
-  button {
-    background: none;
-    border: none;
-    font: inherit;
+  .header .nav ul{
+    width:100%;
+    flex-flow: column;
+    padding:2rem 0;
   }
-  
-  input {
-    width: 100%;
-    outline: none;
+
+  .header .nav ul li{
+    width:100%;
+    text-align:center;
+    margin: 1rem 0;
   }
-  
-  button { cursor: pointer; }
-  
-  ion-icon { pointer-events: none; }
-  
-  address { font-style: normal; }
-  
-  html {
-    font-size: 10px;
-    font-family: var(--ff-rubik);
-    scroll-behavior: smooth;
+
+  .header .nav ul li a{
+    font-size:3rem;
+    display: block;
   }
-  
-  body {
-    background-color: var(--white);
-    font-size: 1.6rem;
-    color: var(--independece);
-    line-height: 1.8;
-    overflow: hidden;
+  .header .nav-toggle{
+    top:50%;
+    opacity: 1;
   }
-  
-  body.loaded { overflow-y: visible; }
-  
-  body.nav-active { overflow: hidden; }
-  
+}
